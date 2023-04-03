@@ -12,6 +12,7 @@ else
     @foreach (Blog blog in Model)
     {
       <li>
+       <!-- this link makes the blog link clickable and it eill lead to the blogs page  -->
         <a asp-action="BlogDetail" asp-route-id="@blog.BlogId">@blog.Name</a>
         @if (User?.Identity?.IsAuthenticated ?? true)
         {
@@ -29,6 +30,7 @@ else
   if (User.IsInRole("blogs-moderate"))
   {
     <hr />
+    //the link for adding a new blog
     <a asp-action="AddBlog">New Blog</a>
   }
 } else {

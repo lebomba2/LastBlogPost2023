@@ -30,16 +30,19 @@ public class HomeController : Controller
     return View();
   }
   [Authorize(Roles = "blogs-moderate")]
+    // this method accepts an argument to delete a blog and redirects to the home page
   public IActionResult DeleteBlog(int id)
   {
     _dataContext.DeleteBlog(_dataContext.Blogs.FirstOrDefault(b => b.BlogId == id));
     return RedirectToAction("Index");
   }
+  //this displays the posts for a specific blog taking the id as an argument 
   public IActionResult BlogDetail(int id) => View(new PostViewModel
   {
     blog = _dataContext.Blogs.FirstOrDefault(b => b.BlogId == id),
     Posts = _dataContext.Posts.Where(p => p.BlogId == id)
   });
+   // this method makes a new  post 
   public IActionResult AddPost(int id)
   {
     ViewBag.BlogId = id;

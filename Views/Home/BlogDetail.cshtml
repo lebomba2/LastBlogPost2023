@@ -1,5 +1,5 @@
 @model PostViewModel
-
+<!--this allows the user to se the posts or delete them from the blog -->
 <div class="bg-primary m-1 p-1 text-white"><h4>@Model.blog.Name Details</h4></div>
 
 @if (Model.Posts.Count() == 0)
@@ -13,6 +13,7 @@ else
     {
       <li>
         @post.Title - @post.Content |
+         <!-- this is the link that allows you to delete a post  -->
         <a asp-action="DeletePost" asp-route-id="@post.PostId">Delete</a>
       </li>
     }

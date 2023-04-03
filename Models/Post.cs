@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+//creates a post where the title is reqiured 
 public class Post
 {
   public int PostId { get; set; }
