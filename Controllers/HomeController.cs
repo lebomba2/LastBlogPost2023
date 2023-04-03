@@ -67,4 +67,4 @@ public class HomeController : Controller
     _dataContext.DeletePost(post);
     return RedirectToAction("BlogDetail", new { id = BlogId });
   }
-}
+} 

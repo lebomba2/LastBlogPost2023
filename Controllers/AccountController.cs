@@ -50,5 +50,5 @@ public class AccountController : Controller
     {
         await signInManager.SignOutAsync();
         return RedirectToAction("Index", "Home");
-    }
+    } 
 }
