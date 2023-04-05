@@ -27,7 +27,6 @@ else
 }
 @if (User?.Identity?.IsAuthenticated ?? true)
 {
-  if (User.IsInRole("blogs-moderate"))
   {
     <hr />
     //the link for adding a new blog

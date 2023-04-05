@@ -42,8 +42,9 @@ public class HomeController : Controller
     blog = _dataContext.Blogs.FirstOrDefault(b => b.BlogId == id),
     Posts = _dataContext.Posts.Where(p => p.BlogId == id)
   });
-   // this method makes a new  post 
-  public IActionResult AddPost(int id)
+    // this method makes a new  post 
+    [Authorize]
+public IActionResult AddPost(int id)
   {
     ViewBag.BlogId = id;
     return View();
@@ -63,7 +64,9 @@ public class HomeController : Controller
     return View();
   }
 
-  public IActionResult DeletePost(int id)
+    [Authorize(Roles = "blogs-moderate")]
+
+    public IActionResult DeletePost(int id)
   {
     Post post = _dataContext.Posts.FirstOrDefault(p => p.PostId == id);
     int BlogId = post.BlogId;
